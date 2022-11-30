@@ -281,7 +281,7 @@ $languages = $mysqli->getValue("languages");
                             <p class="innerText"><?php echo $jobexperience["innerText"]; ?></p>
                             <p class="achievements">Prestationer</p>
                             <ul>
-                                <?php foreach (json_decode($jobexperience["achievements"]) as $achievement) {
+                                <?php foreach (json_decode($jobexperience["achievements"])->achivements as $achievement) {
                                     echo "<li>$achievement</li>";
                                 } ?>
                             </ul>
