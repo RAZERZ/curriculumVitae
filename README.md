@@ -67,3 +67,9 @@ create table userinfo
     mail       text null
 );
 ```
+
+#TODO:
+
+- Separate styling in separate stylesheet
+- Add on-the-fly support for editing
+- Add support for possible script execution
