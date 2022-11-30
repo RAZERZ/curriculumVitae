@@ -4,19 +4,22 @@ class databaseAuth {
 
     public function __construct() {
         $this->connection = new mysqli('localhost', 'root', '', 'curriculumVitae');
+
         if($this->connection->connect_error) {
             die("Connection to database failed: " . $this->connection->connect_error);
         }
+
         if($query = $this->connect()->prepare("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'")) {
             $query->execute();
         }
     }
 
     public function connect() {
-        return $mysqli = $this->connection;
+        return $this->connection;
     }
 
     public function getValue($table) {
+
         if($query = $this->connect()->prepare("SELECT * FROM $table;")) {
             $query->execute();
             $result = $query->get_result();
@@ -36,6 +39,7 @@ class databaseAuth {
 }
 
 $mysqli  = new databaseAuth();
+
 $userInfo = $mysqli->getValue("userInfo");
 $profile = $mysqli->getValue("profile");
 $competences = $mysqli->getValue("competens");
@@ -44,6 +48,7 @@ $jobexperiences = $mysqli->getValue("jobexperience");
 $educations = $mysqli->getValue("education");
 $projects = $mysqli->getValue("projects");
 $languages = $mysqli->getValue("languages");
+
 
 ?>
 
@@ -66,6 +71,7 @@ $languages = $mysqli->getValue("languages");
         body {
             margin: unset;
             font-family: Calibri;
+            print-color-adjust: exact;
         }
 
         #headerContainer {
