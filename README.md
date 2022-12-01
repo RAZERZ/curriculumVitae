@@ -56,7 +56,7 @@ create table projreferences
     mail    text null
 );
 
-create table userinfo
+create table userInfo
 (
     name       text null,
     currTitle  text null,
